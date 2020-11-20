@@ -4,8 +4,8 @@ import {
   Switch
 } from 'react-router-dom'
 import Home from './Pages/Home';
-import PlayGround from './Pages/PlayGround/PlayGround';
-import './App.css';
+import PlayGround from './Pages/PlayGround';
+import './App.scss';
 
 function App() {
   return (

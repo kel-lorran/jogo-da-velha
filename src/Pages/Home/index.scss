@@ -1,0 +1,38 @@
+main.home-page {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  > a {
+    align-self: flex-end;
+    margin-bottom: 40px;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  table {
+    margin-bottom: 40px
+  }
+  thead tr {
+    background-color: gray;
+    color: white;
+  }
+  tr, td {
+    line-height: 3rem;
+    text-align: center;
+    background-color: #bebebe;
+  }
+  .router-button {
+    align-self: center;
+    background: gray;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8rem 2.3rem;
+    color: white;
+  }
+}

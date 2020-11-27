@@ -1,0 +1,68 @@
+main.playground-page {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  > a {
+    margin-bottom: 40px;
+  }
+  > p {
+    text-align: center;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    > p {
+      width: 200px;
+    }
+    input {
+      opacity: 0;
+    }
+    label {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .p2_choice::after {
+      content: 'X';
+      font-size: 1.4rem;
+    }
+    .p1_choice::after {
+      content: 'O';
+      font-size: 1.4rem;
+    }
+  }
+  table {
+    margin: 0 30px;
+    height: 180px;
+    width: 180px;
+  }
+  tr, td {
+    line-height: 3rem;
+    text-align: center;
+    background-color: #bebebe;
+    position: relative;
+  }
+  .router-button {
+    align-self: center;
+    background: gray;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.8rem 2.3rem;
+    color: white;
+  }
+  .d-show {
+    opacity: 1;
+  }
+  .d-hide {
+    opacity: 0;
+  }
+}

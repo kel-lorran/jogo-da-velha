@@ -1,26 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import './index.scss'
 
-const fakeData = [
-  {
-    id: 0,
-    player: 'Kelvin lorran',
-    moviments: 3,
-    time: 15
-  },
-  {
-    id: 1,
-    player: 'Lorran',
-    moviments: 5,
-    time: 32
-  }
-]
-
-const Home = () => {
-  const [rankingData, setRankingData] = useState(fakeData)
-
+const Home = ({rankingData}) => {
   return(
     <main className="home-page">
       <a target="_blank" rel="noopener noreferrer" href="#">Visitar GitHub do desenvolvedor</a>

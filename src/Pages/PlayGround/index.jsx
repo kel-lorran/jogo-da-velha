@@ -7,7 +7,7 @@ import DisplayResult from '../../Components/DisplayResult'
 import { initCells, initChoices, victoryScenarios } from './helper'
 import './index.scss'
 
-const PlayGround = () => {
+const PlayGround = ({rankingData}) => {
   const [playerLabel, setPlayerLabel] = useState(true)
   const [gameCells, setGameCells] = useState(initCells())
   const [choices, setChoices] = useState(initChoices().sort(() => 0.5 - Math.random()))
@@ -30,6 +30,30 @@ const PlayGround = () => {
     setGameCells(cellClone)
     setPlayerLabel(!playerLabel)
     removeChoice(x, y)
+  }
+
+  const getMoviments = () => Math.ceil((9 - choices.length) / 2)
+
+  const getStats = () => {
+    const [minutes, seconds] = time.split(':')
+    return {
+      moviments: getMoviments(),
+      time: +minutes * 60 + +seconds
+     }
+  }
+
+  const getPosition = () => {
+    if (gameOver === 'vitoria') {
+      const rankingDataClone = [...rankingData, getStats()]
+
+      const indexOfThisPlayerInRaking = rankingDataClone
+        .sort((a, b) => {
+          const fator = a.moviments - b.moviments
+          return fator !== 0 ? fator : a.time - b.time
+        })
+        .findIndex(e => !e.player)
+      return indexOfThisPlayerInRaking + 1
+    }
   }
 
   useEffect(() => {
@@ -69,7 +93,11 @@ const PlayGround = () => {
         <p className={!playerLabel && !gameOver ? 'd-show' : 'd-hide'}>É a vez do computador</p>
       </div>
       <Timer time={time} setTime={setTime} stop={gameOver} />
-      <DisplayResult result={gameOver} stats={{}} />
+      <DisplayResult 
+        result={gameOver} 
+        stats={getStats}
+        rankingPosition={getPosition}
+      />
     </main>
   )
 }

@@ -6,7 +6,7 @@ const Timer = ({time, setTime, stop}) => {
     const currentTime = (new Date()).getTime()
     const seconds = (new Date(currentTime - initialTime)).getSeconds().toString().padStart(2, '0')
     const minutes = (new Date(currentTime - initialTime)).getMinutes().toString().padStart(2, '0')
-    setTime(`${seconds}:${minutes}`)
+    setTime(`${minutes}:${seconds}`)
   }
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import { 
   BrowserRouter as Router,
   Route,
@@ -7,15 +8,21 @@ import Home from './Pages/Home';
 import PlayGround from './Pages/PlayGround';
 import './App.scss';
 
+import { getHistory } from './utils/historyActions'
+
 function App() {
+  const [rankingData, setRankingData] = useState([])
+
+  useEffect(async () => setRankingData(await getHistory()), [])
+
   return (
    <Router>
      <Switch>
       <Route exact path="/">
-        <Home />
+        <Home rankingData={rankingData} />
       </Route>
       <Route path="/to-play">
-        <PlayGround />
+        <PlayGround rankingData={rankingData} />
       </Route>
      </Switch>
    </Router>
